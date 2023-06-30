@@ -1,0 +1,20 @@
+before_script:
+  - export PATH=$PATH:$GRADLE_HOME/bin:$JAVA_HOME/bin:$GROOVY_HOME/bin
+  - java -version
+  - gradle -version
+  - groovy -version
+  - pwd
+  - echo $HOME
+
+stages:
+  - build
+
+build:
+  stage: build
+  script:
+    - gradle clean build
+  artifacts:
+    paths:
+      - build/*
+      - ./*/build/*
+    expire_in: 2 days
