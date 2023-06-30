@@ -1,0 +1,4 @@
+rootProject.name = 'cosmoloj-gy'
+include 'unit-simple-api'
+include 'unit-simple-impl'
+
