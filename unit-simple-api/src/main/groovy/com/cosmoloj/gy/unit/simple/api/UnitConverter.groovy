@@ -8,4 +8,8 @@ interface UnitConverter {
     UnitConverter linearPow(double pow)
     double convert(double value)
     UnitConverter concatenate(UnitConverter unitConverter)
+
+    default UnitConverter bitwiseNegate() {
+        inverse()
+    }
 }

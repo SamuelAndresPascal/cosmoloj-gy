@@ -30,4 +30,22 @@ abstract class SimpleUnit implements Unit {
     Factor factor(final int numerator) {
         SimpleFactor.of(this, numerator)
     }
+
+    Unit power(final int value) {
+        SimpleDerivedUnit.of(factor(value))
+    }
+
+    Unit multiply(final Object value) {
+        if (value instanceof Number)
+            scaleMultiply(value.doubleValue())
+        else
+            SimpleDerivedUnit.of(this, value as Factor)
+    }
+
+    Unit div(final Object value) {
+        if (value instanceof Number)
+            scaleDivide(value.doubleValue())
+        else
+            SimpleDerivedUnit.of(this, SimpleFactor.of(value as Factor,-1))
+    }
 }

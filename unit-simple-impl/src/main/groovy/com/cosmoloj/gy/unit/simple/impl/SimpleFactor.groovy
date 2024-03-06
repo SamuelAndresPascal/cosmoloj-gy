@@ -30,7 +30,16 @@ class SimpleFactor implements Factor {
         denominator
     }
 
-    static Factor of(final Unit dim, final int numerator, final int denominator = 1) {
-        return new SimpleFactor(dim, numerator, denominator);
+    Unit multiply(final Object value) {
+        SimpleDerivedUnit.of(this, value as Factor)
+    }
+
+    Unit div(final Object value) {
+        SimpleDerivedUnit.of(this, of(value as Factor, -1))
+    }
+
+    static Factor of(final Factor dim, final int numerator, final int denominator = 1) {
+        dim instanceof Unit ? new SimpleFactor(dim, numerator, denominator)
+                : new SimpleFactor(dim.dim(), numerator * dim.numerator(), denominator * dim.denominator())
     }
 }

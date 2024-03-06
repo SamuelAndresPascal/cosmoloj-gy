@@ -10,4 +10,8 @@ interface Factor {
     default double power() {
         return denominator() == 1 ? numerator() : ((double) numerator()) / denominator();
     }
+
+    Unit multiply(Object value)
+
+    Unit div(Object value)
 }

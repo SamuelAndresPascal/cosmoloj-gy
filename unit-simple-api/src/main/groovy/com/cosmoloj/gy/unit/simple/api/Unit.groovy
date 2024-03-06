@@ -32,4 +32,30 @@ interface Unit extends Factor {
     Factor factor(int numerator, int denominator)
 
     Factor factor(int numerator)
+
+    default TransformedUnit plus(final double value) {
+        shift(value)
+    }
+
+    default TransformedUnit minus(final double value) {
+        shift(-value)
+    }
+
+    Unit multiply(Object value)
+
+    Unit div(Object value)
+
+    Unit power(int value)
+
+    default UnitConverter rightShift(final Unit unit) {
+        getConverterTo(unit)
+    }
+
+    default UnitConverter leftShift(final Unit unit) {
+        unit.getConverterTo(this)
+    }
+
+    default Unit bitwiseNegate() {
+        power(-1)
+    }
 }
