@@ -132,7 +132,7 @@ Utilisation des unités dérivées en combinant les dimensions :
 final Unit m = new SimpleFundamentalUnit()
 final Unit kg = new SimpleFundamentalUnit()
 final Unit g = kg / 1000
-final Unit ton = kg* 1000
+final Unit ton = kg * 1000
 final Unit gPerM2 = g / m ** 2
 final Unit km = m * 1000
 final Unit tonPerKm2 = ton * ~km ** 2
