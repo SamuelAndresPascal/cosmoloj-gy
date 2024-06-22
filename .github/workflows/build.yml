@@ -17,9 +17,13 @@ jobs:
         with:
           distribution: 'oracle'
           java-version: '22'
+      - uses: wtfjoke/setup-groovy@v2
+        with:
+          groovy-version: '4.0.21'
       - uses: gradle/actions/setup-gradle@v3
         with:
           gradle-version: 8.8
       - run: java -version
+      - run: groovy --version
       - run: gradle -version
       - run: gradle clean build
